@@ -5,15 +5,23 @@
 [](https://vitejs.dev/)
 [](https://tailwindcss.com/)
 
-**FlashCards AI** é uma aplicação web de estudos que utiliza inteligência artificial para gerar flashcards automaticamente a partir de um tema ou de um arquivo PDF. O projeto foi desenvolvido para otimizar o processo de criação de materiais de estudo, permitindo que os usuários transformem notas de aula, artigos ou qualquer texto em um conjunto de cartões de revisão interativos em segundos.
+**FlashCards AI** é uma aplicação web de estudos que utiliza inteligência artificial para gerar flashcards automaticamente a partir de um tema fornecido pelo usuário ou de um arquivo PDF. O objetivo é facilitar e acelerar a criação de materiais de revisão, tornando o aprendizado mais eficiente e interativo.
 
------
+O projeto é construído com uma arquitetura moderna, separando o front-end (React com Vite) do back-end (Node.js com Express), e está totalmente configurado para deploy em plataformas como Render e Vercel.
 
 ## 📍 Deploy
 
 **Acesse a aplicação ao vivo aqui:**
 
 ### 🚀 **[https://sistema-web-flashcards-interface.onrender.com/](https://sistema-web-flashcards-interface.onrender.com/)**
+
+-----
+
+> ### ⚠️ Atenção: Limitações do Modelo de IA
+>
+> Este projeto utiliza um **modelo de inteligência artificial gratuito** através da plataforma OpenRouter para fins de demonstração. Modelos gratuitos possuem um limite na quantidade de texto que conseguem processar de uma só vez (conhecido como "janela de contexto").
+>
+> Por essa razão, **o tamanho do upload de PDF foi limitado para 0.1MB**. Se o conteúdo de texto extraído do arquivo for muito denso e ultrapassar o limite de tokens do modelo, a geração de flashcards pode falhar ou retornar uma resposta incompleta.
 
 -----
 
@@ -44,7 +52,7 @@ O back-end é responsável por toda a lógica de negócio, incluindo o processam
   * **Rotas**: As rotas (`/perguntar` e `/perguntar-com-arquivo`) são modularizadas usando o `express.Router`.
   * **Upload de Arquivos**: A biblioteca **`multer`** é utilizada como middleware para processar os uploads de arquivos PDF, armazenando-os em memória para extração do texto.
   * **Extração de PDF**: O texto dos arquivos PDF é extraído utilizando a biblioteca **`pdf-parse`**.
-  * **Comunicação com IA**: O **`axios`** é usado para fazer as requisições HTTP para a API da **OpenRouter**, que por sua vez acessa o modelo de linguagem da IA.
+  * **Comunicação com IA**: O **`axios`** é usado para fazer as requisições HTTP para a API da **OpenRouter**, que por sua vez acessa o modelo de linguagem da IA (**`deepseek/deepseek-r1:free`**).
   * **Variáveis de Ambiente**: A biblioteca **`dotenv`** gerencia as variáveis de ambiente (`OPENROUTER_API_KEY`, `CORS_ORIGIN`, `PORT`) para manter as chaves seguras.
   * **CORS**: O middleware **`cors`** é configurado para permitir requisições apenas da origem do front-end, garantindo a segurança da API.
 
@@ -56,7 +64,7 @@ A interface é uma Single Page Application (SPA) construída para ser rápida, r
   * **Build Tool**: **Vite** como ferramenta de build e servidor de desenvolvimento, garantindo Hot Module Replacement (HMR) e um processo de build otimizado.
   * **Estilização**:
       * **Tailwind CSS**: Framework CSS utility-first que permitiu a criação rápida de um design moderno e responsivo, diretamente no JSX.
-      * **CSS Modules**: Utilizado para criar estilos escopados e resolver o problema de estilização do preenchimento automático do navegador, garantindo consistência visual.
+      * **CSS Modules / Global CSS**: Utilizado para criar estilos escopados e globais para resolver problemas de estilização do navegador, como o preenchimento automático.
   * **Gerenciamento de Estado**:
       * **React Hooks (`useState`)**: Todos os estados da aplicação, como a lista de flashcards, status de carregamento e erros, são gerenciados localmente nos componentes.
       * **Custom Hook (`useFlashcards`)**: A lógica de comunicação com a API e o gerenciamento dos estados relacionados aos flashcards foram abstraídos em um hook customizado para reutilização e organização do código.
