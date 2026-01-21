@@ -1,6 +1,5 @@
 import { useState } from 'react';
 
-// Ícones SVG (sem alterações aqui)
 const IconeOlhoAberto = () => (
   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -15,28 +14,19 @@ const IconeOlhoFechado = () => (
   </svg>
 );
 
-// Componente para exibir um único flashcard.
 const Flashcard = ({ pergunta, resposta }) => {
-  // Estado para controlar se a resposta está visível.
   const [respostaVisivel, setRespostaVisivel] = useState(false);
 
-  // Função para alternar a visibilidade da resposta.
   const alternarVisibilidade = () => {
     setRespostaVisivel(!respostaVisivel);
   };
 
   return (
-    // 'group' ainda é útil para o efeito de sombra no hover em desktop.
     <div className="group relative w-full max-w-96 bg-white rounded-2xl shadow-lg p-6 min-h-[300px] transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
-      
-      {/* Container dos ícones de ação */}
-      <div 
-        // LÓGICA ATUALIZADA AQUI:
-        // - Inicia com opacidade total (visível no mobile).
-        // - Em telas médias (md) ou maiores, fica invisível e só aparece no hover do 'group'.
+      <div
         className="absolute top-4 right-4 flex space-x-2 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300"
       >
-        <button 
+        <button
           onClick={alternarVisibilidade}
           className="text-gray-400 hover:text-blue-600 p-1 rounded-full focus:outline-none"
           title={respostaVisivel ? "Ocultar Resposta" : "Mostrar Resposta"}
@@ -47,9 +37,9 @@ const Flashcard = ({ pergunta, resposta }) => {
 
       <h3 className="font-bold text-gray-800">Pergunta:</h3>
       <p className="mb-4 text-gray-700">{pergunta}</p>
-      
+
       <h3 className="font-bold text-blue-600">Resposta:</h3>
-      
+
       {respostaVisivel ? (
         <p className="text-gray-700 animate-fadeIn">{resposta}</p>
       ) : (

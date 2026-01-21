@@ -1,42 +1,35 @@
-/* src/index.css */
 @import "tailwindcss";
 
-/* Garante que o espaço da barra de rolagem seja sempre estável para evitar shifts no layout */
 .flex-1 {
     scrollbar-gutter: stable;
 }
 
-/* Estilos personalizados para a barra de rolagem */
-/* Eles serão aplicados quando overflow-y-auto tornar a barra visível */
 .flex-1::-webkit-scrollbar {
-    width: 7px; /* Largura da barra de rolagem vertical */
+    width: 7px; 
 }
 
 .flex-1::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Cor de fundo da trilha da barra de rolagem */
-    border-radius: 10px; /* Borda arredondada da trilha */
+    background: #f1f1f1; 
+    border-radius: 10px; 
 }
 
 .flex-1::-webkit-scrollbar-thumb {
-    background: #888; /* Cor do "polegar" (a parte que você arrasta) */
-    border-radius: 10px; /* Borda arredondada do polegar */
+    background: #888;
+    border-radius: 10px; 
 }
 
 .flex-1::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Cor do polegar ao passar o mouse */
+    background: #555; 
 }
 
-/* Correção para o fundo branco do preenchimento automático do navegador */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-    /* Usa um truque de box-shadow para "pintar" o fundo do input */
-    box-shadow: 0 0 0 30px #1f2937 inset !important;
-    
-    /* Força a cor do texto a ser clara */
-    -webkit-text-fill-color: #e5e7eb !important; /* Cor correspondente a 'text-gray-200' */
-    
-    /* Adiciona uma transição suave para a mudança de cor */
-    transition: background-color 5000s ease-in-out 0s;
+  -webkit-box-shadow: 0 0 0px 1000px #1f2937 inset !important;
+  box-shadow: 0 0 0px 1000px #1f2937 inset !important;
+  -webkit-text-fill-color: #e5e7eb !important; 
+  caret-color: #e5e7eb !important;
+  border: 1px solid #374151 !important;
+  background-color: #1f2937 !important;
 }

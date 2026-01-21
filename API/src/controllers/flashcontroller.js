@@ -27,13 +27,9 @@ export const perguntarComArquivo = async (req, res) => {
             return res.status(400).json({ erro: 'Nenhum arquivo enviado.' });
         }
 
-        // 2. O arquivo enviado (PDF) fica disponível em req.file.buffer
-        const dataBuffer = req.file.buffer; 
-        
-        // 3. A biblioteca 'pdf-parse' lê o buffer do arquivo e extrai o texto.
+        const dataBuffer = req.file.buffer;
         const data = await pdf(dataBuffer);
 
-        // 4. O texto extraído é combinado com a pergunta do usuário.
         const { pergunta } = req.body;
         const textoCompleto = `${pergunta}\n\n${data.text}`;
 
