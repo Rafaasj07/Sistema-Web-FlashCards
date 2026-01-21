@@ -21,7 +21,7 @@ O projeto é construído com uma arquitetura moderna, separando o front-end (Rea
 >
 > Este projeto utiliza um **modelo de inteligência artificial gratuito** através da plataforma OpenRouter para fins de demonstração. Modelos gratuitos possuem um limite na quantidade de texto que conseguem processar de uma só vez (conhecido como "janela de contexto").
 >
-> Por essa razão, **o tamanho do upload de PDF foi limitado para 0.1MB**. Se o conteúdo de texto extraído do arquivo for muito denso e ultrapassar o limite de tokens do modelo, a geração de flashcards pode falhar ou retornar uma resposta incompleta.
+> Por essa razão, **o tamanho do upload de PDF foi limitado para 5MB**. Se o conteúdo de texto extraído do arquivo for muito denso e ultrapassar o limite de tokens do modelo, a geração de flashcards pode falhar ou retornar uma resposta incompleta.
 
 -----
 
@@ -32,7 +32,7 @@ O projeto é construído com uma arquitetura moderna, separando o front-end (Rea
 ## ✨ Funcionalidades
 
   * **Geração de Flashcards via Texto**: Basta digitar um tema, como *"5 flashcards sobre a Segunda Guerra Mundial"*, para que a IA crie cartões objetivos e informativos sobre o assunto.
-  * **Geração de Flashcards via PDF**: Faça o upload de um arquivo PDF (com limite de 0.1MB) e a IA irá analisar o conteúdo para criar flashcards baseados **exclusivamente** nas informações do documento. Ideal para transformar notas de aula e resumos em material de estudo ativo.
+  * **Geração de Flashcards via PDF**: Faça o upload de um arquivo PDF (com limite de 5MB) e a IA irá analisar o conteúdo para criar flashcards baseados **exclusivamente** nas informações do documento. Ideal para transformar notas de aula e resumos em material de estudo ativo.
   * **Interface Reativa e Intuitiva**: Uma interface limpa, com tema escuro e totalmente responsiva, construída com as tecnologias mais recentes de front-end para uma ótima experiência de usuário.
   * **Validação de Arquivos**: O front-end valida o tamanho do arquivo PDF antes do envio para garantir que ele esteja dentro dos limites permitidos, fornecendo feedback instantâneo ao usuário.
   * **Visualização Interativa**: As respostas dos flashcards ficam ocultas por padrão. O usuário pode revelá-las com um clique em um ícone, facilitando a prática de recordação ativa, uma técnica de estudo comprovadamente eficaz.

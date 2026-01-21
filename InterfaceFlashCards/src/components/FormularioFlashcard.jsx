@@ -5,7 +5,7 @@ const FormularioFlashcard = ({ aoGerar, carregando }) => {
   const [arquivo, setArquivo] = useState(null);
   const [arquivoErro, setArquivoErro] = useState('');
 
-  const TAMANHO_MAXIMO_EM_BYTES = 0.1 * 1024 * 1024;
+  const TAMANHO_MAXIMO_EM_BYTES = 5 * 1024 * 1024;
 
   const aoMudarArquivo = (evento) => {
     const file = evento.target.files[0];
@@ -19,7 +19,7 @@ const FormularioFlashcard = ({ aoGerar, carregando }) => {
 
     if (file.size > TAMANHO_MAXIMO_EM_BYTES) {
       const tamanhoEmMb = (file.size / (1024 * 1024)).toFixed(2);
-      setArquivoErro(`Arquivo muito grande! Máximo de 0.1MB. (Seu arquivo tem ${tamanhoEmMb} MB)`);
+      setArquivoErro(`Arquivo muito grande! Máximo de 5MB. (Seu arquivo tem ${tamanhoEmMb} MB)`);
       setArquivo(null);
       evento.target.value = '';
     } else {
@@ -52,7 +52,7 @@ const FormularioFlashcard = ({ aoGerar, carregando }) => {
 
         <div className="mb-6">
           <label htmlFor="arquivo" className="block text-gray-300 text-lg font-semibold mb-2">
-            Ou envie um arquivo PDF (Máx: 0.1MB)
+            Ou envie um arquivo PDF (Máx: 5MB)
           </label>
           <input
             type="file"
