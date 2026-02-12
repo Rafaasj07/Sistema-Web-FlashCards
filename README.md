@@ -87,7 +87,7 @@ Siga os passos abaixo para configurar e executar o projeto em sua máquina local
 
 ```bash
 # 1. Clone o repositório
-git clone https://github.com/Rafaasj07/Sistema-Web-FlashCards.git
+https://github.com/rafaelaugustodev/Sistema-Web-FlashCards.git
 
 # 2. Navegue até a pasta da API
 cd Sistema-Web-FlashCards/API
